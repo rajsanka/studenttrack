@@ -1,0 +1,19 @@
+name:   Driver
+type:   PrimeData
+flow:   StudentFlow
+attributes:
+    - attribute:    driverPhone
+      type:         key
+states:
+    - name:         active
+      startState:   true
+    - name:         inactive
+      endState:     true
+security:
+    - name:     msgaccess
+      type:     unauthenticated
+      access:   execute
+      parm:     VerifyDriver,LookupEvent
+    - name:     roleaccess
+      type:     smartrole
+      access:   execute

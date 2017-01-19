@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SecureTrip</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_track_location">Track Location</string>
+    <string name="verify_text">Verify OTP</string>
+    <string name="password_hint">Enter Password</string>
+    <string name="confirm_password">Re-enter password</string>
+    <string name="email_hint">Enter Phone</string>
+    <string name="error_email">Please Enter Phone</string>
+    <string name="action_logout">Logout</string>
+
+</resources>

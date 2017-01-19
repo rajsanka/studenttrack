@@ -1,0 +1,19 @@
+name:   Trip
+type:   PrimeData
+flow:   TrackFlow
+attributes:
+    - attribute:    tripName
+      type:         key
+states:
+    - name:         started
+      startState:   true
+    - name:         tracking
+      startState:   false
+    - name:         ended
+      endState:     false
+    - name:         inactive
+      endState:     true
+security:
+    - name:     roleaccess
+      type:     smartrole
+      access:   execute

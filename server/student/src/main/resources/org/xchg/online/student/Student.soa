@@ -1,0 +1,19 @@
+name:   Student
+type:   PrimeData
+flow:   StudentFlow
+attributes:
+    - attribute:    studentId
+      type:         key
+states:
+    - name:         active
+      startState:   true
+    - name:         inactive
+      endState:     true
+security:
+    - name:     msgaccess
+      type:     unauthenticated
+      access:   execute
+      parm:     VerifyParent
+    - name:     roleaccess
+      type:     smartrole
+      access:   execute

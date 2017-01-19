@@ -1,0 +1,77 @@
+name:   DataManager
+type:   Transition
+flow:   StudentFlow
+foreach:        Driver|VerifyDriver,FlowAdmin|VerifyParent,Driver|ImportStudents,FlowAdmin|CreateDriver
+actions:
+    - name:      createDriver
+      method:    createDriver
+      foreach:   FlowAdmin|CreateDriver
+      parms:     (event,srch.StudentFlow.Driver.event.phone)
+      from:      active
+      to:        active
+    - name:      importStudents
+      method:    importStudents
+      foreach:   Driver|ImportStudents
+      from:      active
+      to:        active
+    - name:      verifyDriver
+      method:    verifyDriver
+      foreach:   Driver|VerifyDriver
+      from:      active
+      to:        active
+    - name:      createParent
+      method:    createParent
+      foreach:   FlowAdmin|VerifyParent
+      parms:     (event,srch.StudentFlow.Parent.event.phone)
+      from:      active
+      to:        active
+    - name:      addStudents
+      method:    addStudents
+      foreach:   FlowAdmin|VerifyParent
+      parms:     (event,txn.Parent)
+      runAfter:  searchStudents
+      from:      active
+      to:        active
+callservices:
+    - name:      searchStudents
+      service:   AllFlows.SearchManager.searchService
+      parms:     (StudentFlow,Student,event.search,event.students)
+      runAfter:  createParent
+      foreach:   FlowAdmin|VerifyParent
+      from:      active
+      to:        active
+    - name:      createParentUser
+      service:   Security.ManageUsers.createUserService
+      parms:     (event.phone, event.password, event.role)
+      runAfter:  addStudents
+      foreach:   FlowAdmin|VerifyParent
+      from:      active
+      to:        active
+    - name:      addParentIdentity
+      service:   Security.ManageUsers.addIdentityService
+      parms:     (txn.SmartUser, event.phone, event.phone, event.password, event.identityType)
+      runAfter:  createParentUser
+      foreach:   FlowAdmin|VerifyParent
+      from:      active
+      to:        active
+    - name:      createDriverUser
+      service:   Security.ManageUsers.createUserService
+      parms:     (data.driverPhone, event.password, event.role)
+      runAfter:  verifyDriver
+      foreach:   Driver|VerifyDriver
+      from:      active
+      to:        active
+    - name:      addDriverIdentity
+      service:   Security.ManageUsers.addIdentityService
+      parms:     (txn.SmartUser, data.driverPhone, data.driverPhone, event.password, event.identityType)
+      runAfter:  createDriverUser
+      foreach:   Driver|VerifyDriver
+      from:      active
+      to:        active
+    #- name:      sendSMS
+    #  service:   AllFlows.TransitionServices.sendSMS
+    #  parms:     (event.SMSmsg)
+    #  runAfter:  registerProfile
+    #  foreach:   FlowAdmin|Register
+    #  from:      active
+    #  to:        active

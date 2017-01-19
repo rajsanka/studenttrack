@@ -1,0 +1,33 @@
+name:   StudentFlow
+defaultEnable: basic
+primeData:
+    - org.xchg.online.student.Student
+    - org.xchg.online.student.Parent
+    - org.xchg.online.student.Driver
+events:
+    - org.xchg.online.student.CreateDriver
+    - org.xchg.online.student.VerifyDriver
+    - org.xchg.online.student.ImportStudents
+    - org.xchg.online.student.VerifyParent
+responses:
+    - org.xchg.online.student.MessageResponse
+transitions:
+    - org.xchg.online.student.DataManager
+features:
+    - name: basic
+      artefacts:
+        - org.xchg.online.student.Driver
+        - org.xchg.online.student.Parent
+        - org.xchg.online.student.Student
+        - org.xchg.online.student.MessageResponse
+        - org.xchg.online.student.DataManager
+        - org.xchg.online.student.VerifyDriver
+        - org.xchg.online.student.VerifyParent
+    - name: admin
+      artefacts:
+        - org.xchg.online.student.CreateDriver
+        - org.xchg.online.student.ImportStudents
+security:
+    - name: unregistered
+      parms: VerifyDriver,VerifyParent,MessageResponse,LookupEvent
+      guardtype: unauthenticated

@@ -1,0 +1,56 @@
+name:   TrackFlow
+defaultEnable: all
+primeData:
+    - org.xchg.online.traffic.track.Device
+    - org.xchg.online.traffic.track.Trip
+    - org.xchg.online.traffic.track.TripSummary
+    - org.xchg.online.traffic.track.TripStop
+    - org.xchg.online.traffic.track.Route
+series:
+    - org.xchg.online.traffic.track.VehicleLocation
+events:
+    - org.xchg.online.traffic.track.UploadLocations
+    - org.xchg.online.traffic.track.CreateDevice
+    - org.xchg.online.traffic.track.StartTrip
+    - org.xchg.online.traffic.track.EndTrip
+    - org.xchg.online.traffic.track.GetTripSummary
+    - org.xchg.online.traffic.track.GetCurrentTrip
+    - org.xchg.online.traffic.track.GetCurrentTripLocation
+responses:
+    - org.xchg.online.traffic.track.UploadResponse
+    - org.xchg.online.traffic.track.TripSummaryData
+    - org.xchg.online.traffic.track.TripData
+transitions:
+    - org.xchg.online.traffic.track.LocationTracker
+keys:
+    - data: org.xchg.online.traffic.track.Device
+      key: deviceId
+    - data: org.xchg.online.traffic.track.TripStop
+      key: stopId
+    - data: org.xchg.online.traffic.track.TripSummary
+      key: summaryId
+    - data: org.xchg.online.traffic.track.Route
+      key: routeName
+features:
+    - name: all
+      artefacts:
+        - org.xchg.online.traffic.track.Device
+        - org.xchg.online.traffic.track.Trip
+        - org.xchg.online.traffic.track.TripSummary
+        - org.xchg.online.traffic.track.TripStop
+        - org.xchg.online.traffic.track.Route
+        - org.xchg.online.traffic.track.VehicleLocation
+        - org.xchg.online.traffic.track.UploadLocations
+        - org.xchg.online.traffic.track.GetTripSummary
+        - org.xchg.online.traffic.track.CreateDevice
+        - org.xchg.online.traffic.track.StartTrip
+        - org.xchg.online.traffic.track.EndTrip
+        - org.xchg.online.traffic.track.UploadResponse
+        - org.xchg.online.traffic.track.TripSummaryData
+        - org.xchg.online.traffic.track.LocationTracker
+        - org.xchg.online.traffic.track.GetCurrentTrip
+        - org.xchg.online.traffic.track.GetCurrentTripLocation
+        - org.xchg.online.traffic.track.TripData
+links:
+    - from: TripSummary.tripName
+      to: Trip.tripName

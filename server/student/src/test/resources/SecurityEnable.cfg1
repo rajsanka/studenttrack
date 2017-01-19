@@ -1,0 +1,28 @@
+tests:
+    - event:    CreateRole
+      postto:
+        type:   FlowAdmin
+        value:  Security
+      postdata:
+        roleName:   driver
+        permits:
+            "/StudentFlow/basic": execute
+            "/TrackFlow/all": execute
+            "/Security/standard": execute
+            "/AllFlows/all": execute
+      test:
+        message:    "Created a role for: driver"
+    - event:    CreateRole
+      postto:
+        type:   FlowAdmin
+        value:  Security
+      postdata:
+        roleName:   parent
+        permits:
+            "/StudentFlow/basic": execute
+            "/TrackFlow/all": execute
+            "/Security/standard": execute
+            "/AllFlows/all": execute
+      test:
+        message:    "Created a role for: parent"
+              

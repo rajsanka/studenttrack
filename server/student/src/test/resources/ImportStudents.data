@@ -1,0 +1,16 @@
+tests:
+    - event: ImportStudents
+      postto:
+        type:   Driver
+        value:  "9902530998"
+      postdata:
+        tenant: kidtravel
+        students: 
+            - name: Revathy
+              parentPhone: "9880664340"
+              parentName: Sankar
+            - name: Raji
+              parentPhone: "9445678990"
+              parentName: Sankar1
+      test:
+        message: "Imported students for: 9902530998"
