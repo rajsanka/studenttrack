@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">Base Frame</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="login_text">Log in</string>
+    <string name="register_text">Register</string>
+    <string name="verify_text">Verify</string>
+
+    <string name="email_hint">E-mail</string>
+    <string name="phone_hint">Phone</string>
+    <string name="name_hint">Name</string>
+    <string name="verify_code">Verification Code</string>
+    <string name="confirm_password">Confirm Password</string>
+
+    <string name="error_invalid_email">Enter valid email</string>
+    <string name="login_email_not_found">Email not found.</string>
+    <string name="password_hint">Password</string>
+    <string name="dialog_title_confirm_exit">Confirm Exit</string>
+    <string name="login_send_email_verification">"Send email verification"</string>
+    <string name="exit_confirm_message_form">You have made some changes. Do you really want to exit?</string>
+
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_continue">Continue</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_exit">Exit</string>
+
+    <string name="login_to_continue">Please login to continue.</string>
+
+    <string name="logout_text">logout</string>
+    <string name="forgot_password_button">Send password reset link</string>
+
+    <!-- Error response Listener -->
+    <string name="error_response_invalid_url_code_400">Invalid URL. Please check url</string>
+    <string name="error_response_failed_authentication_code_401">Authentication failed, Please logout and login back again to continue</string>
+    <string name="error_response_wrong_password_code_401">Invalid User or Password</string>
+    <string name="error_response_internal_error_code_422">Error: Internal server error. Please try again</string>
+    <string name="error_response_value_not_present_code_404">Error : Requested value is not present at server.</string>
+    <string name="error_response_internal_error_code_500">Error: Internal server error. Please try again</string>
+    <string name="error_response_invalid_email">Invalid email</string>
+    <string name="something_went_wrong">Something went wrong. Please try after some time.</string>
+    <string name="msg_no_internet">Error while connecting to the server. Please check your internet connection settings.</string>
+    <string name="check_internet_connection">Please check your Internet Connection</string>c
+
+    <string name="icon_cloud_error">&#xe85d;</string>
+    <string name="icon_home">&#xe74f;</string>
+    <string name="icon_previous">&#xe696;</string>
+    <string name="icon_next">&#xe7b9;</string>
+    <string name="icon_menu_options">&#xe6e5;</string>
+    <string name="icon_rupee">&#x20A8;</string>
+    <string name="icon_category_default">&#xe85f;</string>
+    <string name="icon_three_dot">&#xe634;</string>
+    <string name="icon_tick">&#xe727;</string>
+    <string name="icon_degree">5&#x2103;</string>
+
+    <string name="map_not_loaded_msg">Sorry! unable to create maps</string>
+    <string name="location_not_found_msg">Could not find Location. Please try again</string>
+    <string name="splash_city_not_found_msg">Couldn\'t determine your Current City, as access to Location is denied. Setting Current city to Bangalore.</string>
+     <string name="enable_gps_msg">Press OK to go to
+                +  location services settings to enable GPS.</string>
+    <string name="location_not_known_msg">Could not find the Location</string>
+    <string name="splash_location_request_rationale">Nestaway needs access to Location to auto detect your current City.</string>
+    <string name="search_location_request_rationale">Nestaway needs access to Location to determine your current location.</string>
+    <string name="description">description</string>
+    <string name="no_data">-</string>
+    <string name="options">options</string>
+    <string name="logout">Logout</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_navigate">Navigate</string>
+    <string name="no_internet_connection_error">No internet connection. Please check your connection.</string>
+    <string name="time_out_error">Connection time out. Please check your internet connection.</string>
+
+    <string name="prev_string"><u>Previous:10th July 10:00am</u></string>
+    <string name="history"><u>History</u></string>
+
+
+    <string name="add_values">Add values to the chart</string>
+    <string name="x">X</string>
+    <string name="y">Y</string>
+    <string name="add">Add</string>
+    <string name="new_series">New series</string>
+    <string name="error_email">Please enter email</string>
+
+</resources>

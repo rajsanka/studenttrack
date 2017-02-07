@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <RelativeLayout android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btnRecord"
+            android:layout_width="@dimen/big_button_width"
+            android:layout_height="@dimen/big_button_height"
+            android:background="@drawable/record"
+            android:fontFamily="sans-serif-light"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_weight="0.05" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="150px"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="@dimen/close_button_width"
+            android:layout_height="@dimen/close_button_height"
+            android:layout_below="@+id/btnBookK"
+            android:background="@drawable/ic_close_black" />
+
+    </LinearLayout>
+
+</RelativeLayout>

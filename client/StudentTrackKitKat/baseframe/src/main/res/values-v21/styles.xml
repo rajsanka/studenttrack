@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.WhiteBackGroundTheme.TranslucentStatus" parent="Theme.WhiteBackGroundTheme">
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="MyMaterialTheme.Base.TranslucentStatus">
+        <item name="android:actionMenuTextColor">@color/grey</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="SeekBarAppTheme" parent="Widget.AppCompat.SeekBar">
+        <item name="android:indeterminateTint">@color/OrangeRed</item>
+        <item name="android:progressTint">@color/OrangeRed</item>
+        <item name="android:thumbTint">@color/OrangeRed</item>
+    </style>
+    <style name="MyButtonStyle" parent="Widget.AppCompat.Button.Colored">
+    </style>
+
+    <style name="SplashScreenProgressBarStyle" parent="Base.Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminateTint">@color/white</item>
+        <item name="android:indeterminateTintMode">src_in</item>
+    </style>
+
+</resources>

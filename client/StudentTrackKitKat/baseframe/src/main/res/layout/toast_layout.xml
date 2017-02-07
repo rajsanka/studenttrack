@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearlayout_toast"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/view_custom_toast"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/toast_layout_ll_paddingtop"
+    android:paddingBottom="@dimen/toast_layout_ll_paddingbot"
+    android:paddingLeft="@dimen/toast_layout_ll_paddingleft"
+    android:paddingRight="@dimen/toast_layout_ll_paddingright">
+    <TextView
+        android:id="@+id/toast_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/toast_layout_tv_textsize" />
+    <TextView
+        android:id="@+id/tv_rupee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/toast_layout_tv_textsize" />
+    <TextView
+        android:id="@+id/tv_rupeeval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/toast_layout_tv_textsize" />
+</LinearLayout>

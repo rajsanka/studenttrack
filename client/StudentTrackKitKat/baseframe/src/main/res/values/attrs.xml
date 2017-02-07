@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="customAttrs">
+        <attr name="applicationLogo" format="reference" />
+        <attr name="logoWidth" format="reference" />
+        <attr name="logoHeight" format="reference" />
+    </declare-styleable>
+</resources>

@@ -1,7 +1,7 @@
 name:   LocationTracker
 type:   Transition
 flow:   TrackFlow
-foreach:        FlowAdmin|CreateDevice,Device|StartTrip,Trip|UploadLocations,Trip|EndTrip,Trip|GetTripSummary,Device|GetCurrentTrip,Device|GetCurrentTripLocation
+foreach:        FlowAdmin|CreateDevice,Device|StartTrip,Trip|UploadLocations,Trip|EndTrip,Trip|GetTripSummary,Device|GetCurrentTrip,Device|GetCurrentTripLocation,FlowAdmin|GetOpenTrips
 actions:
     - name:      uploadLocations
       method:    uploadLocations
@@ -25,10 +25,17 @@ actions:
       runAfter:  searchOpenTrip
       from:      active
       to:        active
+    - name:      setupCurrentTripLocations
+      method:    setupCurrentTripLocations
+      foreach:   Device|GetCurrentTripLocation
+      parms:     (event,srch.TrackFlow.Trip.data.currentTrip)
+      from:      active
+      to:        active
     - name:      getLocationForCurrentTrip
       method:    getLocationForCurrentTrip
       foreach:   Device|GetCurrentTripLocation
-      parms:     (data,srch.TrackFlow.Trip.data.currentTrip)
+      parms:     (event,data,srch.TrackFlow.Trip.data.currentTrip)
+      runAfter:  searchCurrentLocations
       from:      active
       to:        active
     - name:      setupCurrentTrip
@@ -60,6 +67,17 @@ actions:
       runAfter:  searchLocations
       from:      ended
       to:        ended
+    - name:      setupOpenTripsSearch
+      method:    setupOpenTripsSearch
+      foreach:   FlowAdmin|GetOpenTrips
+      from:      active
+      to:        active
+    - name:      getOpenTrips
+      method:    getOpenTrips
+      foreach:   FlowAdmin|GetOpenTrips
+      runAfter:  searchOpenTrips
+      from:      active
+      to:        active
 callservices:
     - name:      searchOpenTrip
       service:   AllFlows.SearchManager.searchService
@@ -68,11 +86,25 @@ callservices:
       foreach:   Device|StartTrip
       from:      active
       to:        active
+    - name:      searchOpenTrips
+      service:   AllFlows.SearchManager.searchService
+      parms:     (TrackFlow,Trip,event.search,event.trips)
+      runAfter:  setupOpenTripsSearch
+      foreach:   FlowAdmin|GetOpenTrips
+      from:      active
+      to:        active
     - name:      searchTripLocations
       service:   AllFlows.SeriesDataManager.seriesDataFor
       parms:     (TrackFlow,VehicleLocation,event.search,event.locations)
       runAfter:  setupCurrentTrip
       foreach:   Device|GetCurrentTrip
+      from:      active
+      to:        active
+    - name:      searchCurrentLocations
+      service:   AllFlows.SeriesDataManager.seriesDataFor
+      parms:     (TrackFlow,VehicleLocation,event.search,event.locations)
+      runAfter:  setupCurrentTripLocations
+      foreach:   Device|GetCurrentTripLocation
       from:      active
       to:        active
     - name:      searchLocations

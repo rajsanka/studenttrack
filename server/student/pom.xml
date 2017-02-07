@@ -46,19 +46,19 @@
                             <runasadmin>true</runasadmin>
                             <files>**.cfg</files>
                         </TestConfig>-->
-                        <TestConfig>
+                        <!--<TestConfig>
                             <testuser>kidtraveladmin</testuser>
                             <testpassword>kidtraveladmin</testpassword>
                             <flow>Security</flow>
                             <tenant>kidtravel</tenant>
                             <files>**.cfg1</files>
-                        </TestConfig>
-                        <!--<TestConfig>
+                        </TestConfig>-->
+                        <TestConfig>
                             <testuser>kidtraveladmin</testuser>
                             <testpassword>kidtraveladmin</testpassword>
                             <tenant>kidtravel</tenant>
                             <files>**.data</files>
-                        </TestConfig>-->
+                        </TestConfig>
                     </tests>
                 </configuration>
             </plugin>

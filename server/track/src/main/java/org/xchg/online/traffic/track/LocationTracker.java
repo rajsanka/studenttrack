@@ -101,8 +101,29 @@ public class LocationTracker
         TripSummaryData ret = new TripSummaryData(summary, t, get.getLocations());
     }
 
-    public void getLocationForCurrentTrip(Device dev, Trip t)
+    public boolean setupCurrentTripLocations(GetCurrentTripLocation evt, Trip t)
     {
+        if (!t.hasEnded())
+        {
+            evt.setupSearch(t);
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean getLocationForCurrentTrip(GetCurrentTripLocation evt, Device dev, Trip t)
+    {
+        if (!t.hasEnded())
+        {
+            TripData data = new TripData(t, evt.getLocations());
+            return true;
+        }
+
+        new UploadResponse("No trips found for the device: " + dev.getDeviceId(), dev.getDeviceId());
+        return true;
+
+        /*
         if ((t != null) && !t.hasEnded())
         {
             TripData udata = new TripData(t);
@@ -110,6 +131,7 @@ public class LocationTracker
         }
 
         new UploadResponse("No trips found for the device: " + dev.getDeviceId(), dev.getDeviceId());
+        */
     }
 
     public boolean setupCurrentTrip(GetCurrentTrip evt, Trip t)
@@ -133,6 +155,18 @@ public class LocationTracker
 
         new UploadResponse("No trips found for the device: " + dev.getDeviceId(), dev.getDeviceId());
         return true;
+    }
+
+    public void setupOpenTripsSearch(GetOpenTrips evt)
+    {
+        evt.setupSearch();
+    }
+
+    public void getOpenTrips(GetOpenTrips evt)
+        throws Exception
+    {
+        List trips = evt.getTrips();
+        OpenTripData td = new OpenTripData(trips);
     }
 }
 

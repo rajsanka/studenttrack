@@ -24,9 +24,23 @@ import java.util.HashMap;
 
 public class GetCurrentTripLocation implements java.io.Serializable
 {
+    private List<VehicleLocation> locations;
+    private Map search;
+
+    private long lastTime;
+
     public GetCurrentTripLocation()
     {
     }
 
+    void setupSearch(Trip t)
+    {
+        search = new HashMap();
+        search.put("tripName", t.getTripName());
+        search.put("startTime > ", lastTime);
+        locations = new ArrayList();
+    }
+
+    public List getLocations() { return locations; }
 }
 

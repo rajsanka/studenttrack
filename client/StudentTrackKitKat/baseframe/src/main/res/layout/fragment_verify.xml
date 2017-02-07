@@ -1,0 +1,157 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    tools:context="org.xchg.online.baseframe.fragment.VerifyFragment">
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@null"
+        android:orientation="vertical"
+        android:padding="@dimen/fragment_login_ll_padding"
+        android:weightSum="1"
+        android:clickable="true">
+        <ImageView
+            android:layout_width="?attr/logoWidth"
+            android:layout_height="?attr/logoHeight"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:src="?attr/applicationLogo"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/textColorPrimary"
+            android:layout_marginTop="5dp"
+            android:textSize="24dp"
+            android:text="@string/verify_text"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/email_layout"
+            android:layout_width="match_parent"
+            android:paddingTop="5dp"
+            android:background="@color/textBackgroundColor"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/fragment_login_edittext_height"
+                android:background="@color/textBackgroundColor"
+                android:paddingLeft="@dimen/fragment_login_edittext_padding_left"
+                style="@style/LoginTextStyle"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:hint="@string/email_hint"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/login_name_layout"
+            android:layout_width="match_parent"
+            android:paddingTop="5dp"
+            android:background="@color/textBackgroundColor"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+        <EditText
+                android:id="@+id/verifycode"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/fragment_login_edittext_height"
+                android:background="@color/textBackgroundColor"
+                android:paddingLeft="@dimen/fragment_login_edittext_padding_left"
+                style="@style/LoginTextStyle"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:hint="@string/verify_code"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/login_password_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/textBackgroundColor"
+            android:paddingTop="5dp"
+            android:layout_marginTop="10dp">
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/fragment_login_edittext_height"
+                android:background="@color/textBackgroundColor"
+                android:paddingLeft="@dimen/fragment_login_edittext_padding_left"
+                style="@style/LoginTextStyle"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:hint="@string/password_hint"
+                android:drawablePadding="@dimen/fragment_login_edittext_drawable_padding"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/textBackgroundColor"
+            android:paddingTop="5dp"
+            android:layout_marginTop="10dp">
+            <EditText
+                android:id="@+id/confirmpassword"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/fragment_login_edittext_height"
+                android:background="@color/textBackgroundColor"
+                android:paddingLeft="@dimen/fragment_login_edittext_padding_left"
+                style="@style/LoginTextStyle"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:hint="@string/confirm_password"
+                android:drawablePadding="@dimen/fragment_login_edittext_drawable_padding"
+                android:inputType="textPassword" />
+        </android.support.design.widget.TextInputLayout>
+        <include layout="@layout/horizontal_divider" />
+        <Button
+            android:id="@+id/verify_button"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/fragment_login_btn_height"
+            android:layout_marginTop="@dimen/fragment_login_btn_margintop"
+            android:background="@drawable/bottom_screen_button"
+            android:fontFamily="sans-serif-light"
+            android:text="Verify &amp; Set Password"
+            android:textAllCaps="false"
+            android:textColor="@color/buttonTextColor"
+            android:textSize="@dimen/fragment_login_btn_textsize"
+            android:layout_weight="0.05" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="Login"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="@dimen/fragment_login_tv_margintop"
+                android:layout_marginBottom="@dimen/fragment_login_tv_marginbot"
+                android:paddingTop="@dimen/fragment_login_tv_paddingtop"
+                android:paddingBottom="@dimen/fragment_login_tv_paddingbot"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/fragment_login_tv_textsize" />
+            <TextView
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="Register"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/fragment_login_tv_margintop"
+                android:layout_marginBottom="@dimen/fragment_login_tv_marginbot"
+                android:paddingTop="@dimen/fragment_login_tv_paddingtop"
+                android:paddingBottom="@dimen/fragment_login_tv_paddingbot"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/fragment_login_tv_textsize" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>

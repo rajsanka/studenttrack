@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="xchg.online.studenttrack.TrackLocationActivity" >
+
+
+    <fragment
+        android:id="@+id/map"
+        android:name="xchg.online.studenttrack.TouchableMapSupportFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <!--android:name="com.google.android.gms.maps.SupportMapFragment"-->
+    <Button
+        android:id="@+id/btnRecordMap"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/big_button_height"
+        android:fontFamily="sans-serif"
+        android:textSize="20dp"
+        android:textAllCaps="false"
+        android:background="@color/buttonColor"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/textColorPrimary"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_weight="0.05" />
+
+
+</RelativeLayout>
