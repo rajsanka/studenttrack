@@ -34,6 +34,7 @@ import org.xchg.online.baseframe.utils.Logger;
 import org.xchg.online.baseframe.utils.SessionManager;
 import org.xchg.online.baseframe.utils.Utilities;
 
+import java.util.List;
 import java.util.Set;
 
 import xchg.online.studenttrack.data.LocationData;
@@ -51,7 +52,7 @@ public class TrackLocationActivity extends BaseLocationActivity implements OnMap
     private GoogleMap mGoogleMap;
     private SupportMapFragment mMapFragment;
     private String TAG = TrackLocationActivity.class.getSimpleName();
-    private boolean startedTrip = false;
+    private static boolean startedTrip = false;
     private Button recordButton;
     private boolean firstload;
     private Marker currentMarker;
@@ -109,6 +110,7 @@ public class TrackLocationActivity extends BaseLocationActivity implements OnMap
         mMapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mMapFragment.getMapAsync(this);
+
         this.noRequests = -1;
     }
 
@@ -164,6 +166,16 @@ public class TrackLocationActivity extends BaseLocationActivity implements OnMap
             }
         });
         toggleRecord();
+
+        List<LocationData> locations = TravelData.getCurrentRouteLocations();
+        if (locations != null) {
+            for (LocationData loc : locations) {
+                //if (loc.isUnplotted()) {
+                loc.setUnplotted(false);
+                plotLocation(loc);
+                //}
+            }
+        }
         //MapUtils.showRecordButton(this, true, this);
 
         //mGoogleMap.setOnInfoWindowClickListener(this);
@@ -216,36 +228,39 @@ public class TrackLocationActivity extends BaseLocationActivity implements OnMap
         if (current == null) {
             Utilities.cancellableToast("Error loading current location. Please enable location.", this);
         } else {
-            LatLng mCurrentLocation = new LatLng(current.getLatitude(), current.getLongitude());
+            plotLocation(current);
+        }
+    }
 
-            if (!SessionData.isDriver(SessionManager.getRoleName(this))) {
-                this.stopLocationUpdates(); //just mark the first location
-            }
+    @Override
+    protected void plotLocation(LocationData current) {
+        LatLng mCurrentLocation = new LatLng(current.getLatitude(), current.getLongitude());
 
-            if (!startedTrip || SessionData.isDriver(SessionManager.getRoleName(this))) {
-                if (firstload) {
-                    mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mCurrentLocation, 15f));
-                } else {
-                    mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(mCurrentLocation));
-                }
-            }
-
-            firstload = false;
-            int color = R.color.grey_medium;
-            if (startedTrip) {
-                color = R.color.DodgerBlue;
-            }
-
-            Marker marker = mGoogleMap.addMarker(new MarkerOptions()
-                    .position(mCurrentLocation)
-                    .title("Current Location")
-                    .snippet("")
-                    .icon(createNormalMarkerView(color)));
-
-            moveCurrentMarker(mCurrentLocation);
+        if (!SessionData.isDriver(SessionManager.getRoleName(this))) {
+            this.mLocationRequest.stopLocationUpdates(); //just mark the first location
         }
 
+        if (!startedTrip || SessionData.isDriver(SessionManager.getRoleName(this))) {
+            if (firstload) {
+                mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mCurrentLocation, 15f));
+            } else {
+                mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(mCurrentLocation));
+            }
+        }
 
+        firstload = false;
+        int color = R.color.grey_medium;
+        if (startedTrip) {
+            color = R.color.DodgerBlue;
+        }
+
+        Marker marker = mGoogleMap.addMarker(new MarkerOptions()
+                .position(mCurrentLocation)
+                .title("Current Location")
+                .snippet("")
+                .icon(createNormalMarkerView(color)));
+
+        moveCurrentMarker(mCurrentLocation);
     }
 
     @Override

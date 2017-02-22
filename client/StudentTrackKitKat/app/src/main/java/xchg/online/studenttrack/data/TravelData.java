@@ -5,6 +5,7 @@ import android.app.Activity;
 import org.xchg.online.baseframe.utils.Logger;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import xchg.online.studenttrack.smart.trackflow.EndTrip;
@@ -158,6 +159,16 @@ public class TravelData {
             RouteData route = TRAVELS.mRoutes.get(TRAVELS.currentRoute);
             if (route != null)
                 return route.getCurrentLocation();
+
+            return null;
+        }
+    }
+
+    public static List<LocationData> getCurrentRouteLocations() {
+        synchronized (TRAVELS) {
+            RouteData route = TRAVELS.mRoutes.get(TRAVELS.currentRoute);
+            if (route != null)
+                return route.getLocations();
 
             return null;
         }

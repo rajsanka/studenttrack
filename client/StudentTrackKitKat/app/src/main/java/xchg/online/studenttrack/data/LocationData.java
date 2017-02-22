@@ -19,6 +19,7 @@ public class LocationData {
     private double speed;
     private long duration;
     private long startTime;
+    private boolean unplotted;
 
     private LocationData(double lat, double lng) {
         mLatitude = lat;
@@ -43,6 +44,7 @@ public class LocationData {
         distance = precisionDouble(MapUtils.calculateDistance(lat, lng, prev.getLatitude(), prev.getLongitude())); //in meters
         double insecs = duration / 1000;
         if (insecs > 0) speed = precisionDouble(distance / insecs); // in meters/sec
+        unplotted = false;
     }
 
     LocationData(Map map) {
@@ -52,6 +54,7 @@ public class LocationData {
         distance = (double) map.get("distance");
         speed = (double) map.get("speed");
         duration = Utilities.getLong(map.get("duration"));
+        unplotted = true;
     }
 
     public double getLatitude() { return  mLatitude; }
@@ -60,6 +63,8 @@ public class LocationData {
     public long getDuration() {return duration; }
     public double getDistance() { return distance; }
     public double getSpeed() { return speed; }
+    public void setUnplotted(boolean plot) { unplotted = plot; }
+    public boolean isUnplotted() { return unplotted; }
 
     public static LocationData getLocation(double lat, double lng, LocationData previous) {
         LocationData ret;

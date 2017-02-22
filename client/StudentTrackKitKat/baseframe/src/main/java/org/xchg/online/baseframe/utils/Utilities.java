@@ -331,7 +331,7 @@ public class Utilities {
         if (!checklogin || SessionManager.isLoggedIn(context)) {
             context.startActivity(intent);
             context.finish();
-            context.overridePendingTransition(R.anim.slide_right_to_mid, R.anim.slide_mid_to_left);
+            //context.overridePendingTransition(R.anim.slide_right_to_mid, R.anim.slide_mid_to_left);
         } else{
             Utilities.showToast(context, context.getString(R.string.login_to_continue));
         }

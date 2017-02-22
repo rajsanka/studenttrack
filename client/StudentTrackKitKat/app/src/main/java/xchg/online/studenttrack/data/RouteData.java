@@ -106,6 +106,7 @@ public class RouteData {
 
     public LocationData getCurrentLocation() { return currentLocation; }
 
+
     public static class UploadRoute implements Runnable {
         private Activity activity;
         private RouteData routeData;

@@ -39,9 +39,9 @@ public class SplashScreenActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Logger.d(TAG, "onCreate()");
-        SmartCommunicator.getInstance(this).setSmartServer("securetrip.xchg.online", 9081, "kidtravel");
+        //SmartCommunicator.getInstance(this).setSmartServer("securetrip.xchg.online", 9081, "kidtravel");
         //SmartCommunicator.getInstance(this).setSmartServer("139.59.6.59", 9081, "kidtravel");
-        //SmartCommunicator.getInstance(this).setSmartServer("192.168.1.36", 9081, "kidtravel");
+        SmartCommunicator.getInstance(this).setSmartServer("192.168.1.33", 9081, "kidtravel");
         setContentView(R.layout.activity_splash_screen);
         mAnnotationText = (TextView) findViewById(R.id.annotation_text);
         //handling onresume when the activity is restored from app icon

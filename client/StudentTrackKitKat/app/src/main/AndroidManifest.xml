@@ -61,10 +61,10 @@
 
         <activity
             android:name=".TrackLocationActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_track_location"
             android:parentActivityName=".LoginActivity"
             android:screenOrientation="portrait"
+            android:launchMode="singleInstance"
             android:theme="@style/MyMaterialTheme.Base">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
