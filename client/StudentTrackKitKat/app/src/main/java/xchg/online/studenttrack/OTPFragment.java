@@ -37,7 +37,7 @@ import xchg.online.studenttrack.smart.trackflow.VerifyParent;
  */
 public class OTPFragment extends Fragment implements View.OnClickListener {
 
-    private Activity mParentActivity;
+    private LoginActivity mParentActivity;
     private LoginListener mActListener;
     private ProgressListener mPDialogListener;
     private EditText mPhone;
@@ -68,17 +68,20 @@ public class OTPFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_otp, container, false);
 
-        Button registerButton = (Button) rootView.findViewById(org.xchg.online.baseframe.R.id.verify_button);
+        Button registerButton = (Button) rootView.findViewById(R.id.verify_button);
         registerButton.setOnClickListener(this);
 
-        mOTP = (EditText) rootView.findViewById(org.xchg.online.baseframe.R.id.verifycode);
-        mPassword = (EditText) rootView.findViewById(org.xchg.online.baseframe.R.id.password);
-        mConfirmPassword = (EditText) rootView.findViewById(org.xchg.online.baseframe.R.id.confirmpassword);
-        mPhone = (EditText) rootView.findViewById(org.xchg.online.baseframe.R.id.phone);
-        mName = (EditText) rootView.findViewById(org.xchg.online.baseframe.R.id.name);
+        mOTP = (EditText) rootView.findViewById(R.id.verifycode);
+        mPassword = (EditText) rootView.findViewById(R.id.password);
+        mConfirmPassword = (EditText) rootView.findViewById(R.id.confirmpassword);
+        mPhone = (EditText) rootView.findViewById(R.id.phone);
+        mName = (EditText) rootView.findViewById(R.id.name);
 
-        TextView mLogin = (TextView) rootView.findViewById(org.xchg.online.baseframe.R.id.login);
+        TextView mLogin = (TextView) rootView.findViewById(R.id.login);
         mLogin.setOnClickListener(this);
+
+        TextView mRequest = (TextView) rootView.findViewById(R.id.requestOTP);
+        mRequest.setOnClickListener(this);
 
         return rootView;
     }
@@ -113,6 +116,8 @@ public class OTPFragment extends Fragment implements View.OnClickListener {
             mActListener.showLogin();
         } else if (view.getId() == org.xchg.online.baseframe.R.id.register) {
             mActListener.showRegister();
+        } else if (view.getId() == R.id.requestOTP) {
+            mParentActivity.showRequestOTP();
         } else if (view.getId() == org.xchg.online.baseframe.R.id.verify_button) {
             if (Utilities.isNetworkAvailable(mParentActivity)) {
                 verifyUser();
@@ -126,7 +131,7 @@ public class OTPFragment extends Fragment implements View.OnClickListener {
     public void onAttach(Context activity) {
         super.onAttach(activity);
         if ((activity instanceof Activity) && (activity instanceof LoginParentActivity)) {
-            mParentActivity = (Activity) getActivity();
+            mParentActivity = (LoginActivity) getActivity();
             mActListener = ((LoginParentActivity)mParentActivity).loginListener();
             mPDialogListener = ((LoginParentActivity)mParentActivity).progressListener();
         }else {

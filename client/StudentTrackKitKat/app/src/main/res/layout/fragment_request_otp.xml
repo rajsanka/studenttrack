@@ -30,7 +30,7 @@
             android:textColor="@color/colorPrimaryLight"
             android:layout_marginTop="5dp"
             android:textSize="24dp"
-            android:text="@string/verify_text"/>
+            android:text="Request OTP"/>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/email_layout"
@@ -39,53 +39,37 @@
             android:background="@color/white"
             android:layout_height="wrap_content">
             <EditText
-                android:id="@+id/phone"
+                android:id="@+id/driverphone"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/fragment_login_edittext_height"
                 android:background="@color/white"
                 android:paddingLeft="@dimen/fragment_login_edittext_padding_left"
                 style="@style/LoginTextStyle"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:hint="Enter Phone"
+                android:hint="Enter Driver Phone"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
 
-        <LinearLayout
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/login_name_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/login_name_layout"
-                android:layout_width="0dp"
-                android:layout_weight="3"
-                android:paddingTop="5dp"
+            android:paddingTop="5dp"
+            android:background="@color/white"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <EditText
+                android:id="@+id/parentphone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/fragment_login_edittext_height"
                 android:background="@color/white"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-                <EditText
-                    android:id="@+id/verifycode"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/fragment_login_edittext_height"
-                    android:background="@color/white"
-                    android:paddingLeft="@dimen/fragment_login_edittext_padding_left"
-                    style="@style/LoginTextStyle"
-                    android:textCursorDrawable="@drawable/color_cursor"
-                    android:hint="Enter OTP"
-                    android:inputType="text" />
-            </android.support.design.widget.TextInputLayout>
-            <TextView
-                android:id="@+id/requestOTP"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-light"
-                android:text="Request"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:textColor="@color/colorPrimaryLight"
-                android:textSize="@dimen/fragment_login_tv_textsize" />
-        </LinearLayout>
+                android:paddingLeft="@dimen/fragment_login_edittext_padding_left"
+                style="@style/LoginTextStyle"
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:hint="Enter Your Phone"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/name_layout"
@@ -95,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
 
-        <EditText
+            <EditText
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/fragment_login_edittext_height"
@@ -103,7 +87,7 @@
                 android:paddingLeft="@dimen/fragment_login_edittext_padding_left"
                 style="@style/LoginTextStyle"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:hint="Enter Name"
+                android:hint="Enter Your Name"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
 
@@ -115,45 +99,26 @@
             android:paddingTop="5dp"
             android:layout_marginTop="10dp">
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/studentname"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/fragment_login_edittext_height"
                 android:background="@color/white"
                 android:paddingLeft="@dimen/fragment_login_edittext_padding_left"
                 style="@style/LoginTextStyle"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:hint="@string/password_hint"
+                android:hint="Enter Student Name"
                 android:drawablePadding="@dimen/fragment_login_edittext_drawable_padding"
-                android:inputType="textPassword" />
-        </android.support.design.widget.TextInputLayout>
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/confirm_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:paddingTop="5dp"
-            android:layout_marginTop="10dp">
-            <EditText
-                android:id="@+id/confirmpassword"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/fragment_login_edittext_height"
-                android:background="@color/white"
-                android:paddingLeft="@dimen/fragment_login_edittext_padding_left"
-                style="@style/LoginTextStyle"
-                android:textCursorDrawable="@drawable/color_cursor"
-                android:hint="@string/confirm_password"
-                android:drawablePadding="@dimen/fragment_login_edittext_drawable_padding"
-                android:inputType="textPassword" />
+                android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
         <include layout="@layout/horizontal_divider" />
         <Button
-            android:id="@+id/verify_button"
+            android:id="@+id/request_otp"
             android:layout_width="fill_parent"
             android:layout_height="@dimen/fragment_login_btn_height"
             android:layout_marginTop="@dimen/fragment_login_btn_margintop"
             android:background="@drawable/bottom_screen_button"
             android:fontFamily="sans-serif-light"
-            android:text="Register"
+            android:text="Request OTP"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/fragment_login_btn_textsize"

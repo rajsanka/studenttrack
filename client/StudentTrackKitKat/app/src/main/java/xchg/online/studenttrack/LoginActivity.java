@@ -72,6 +72,7 @@ public class LoginActivity extends BaseActivity implements LoginParentActivity, 
     //private RegisterFragment mRegisterFragment;
     //private VerifyFragment mVerifyFragment;
     private OTPFragment mOTPFragment;
+    private RequestOTPFragment mRequestOTPFragment;
     private String message;
     private boolean validSession;
 
@@ -82,6 +83,7 @@ public class LoginActivity extends BaseActivity implements LoginParentActivity, 
         invalidateOptionsMenu();
         if (mLoginFragment == null) mLoginFragment = MyLoginFragment.newInstance(null);
         if (mOTPFragment == null) mOTPFragment = OTPFragment.newInstance(null);
+        if (mRequestOTPFragment == null) mRequestOTPFragment = RequestOTPFragment.newInstance(null);
 
         changeView(mLoginFragment);
         message = "Logging in.. Please wait..";
@@ -205,6 +207,11 @@ public class LoginActivity extends BaseActivity implements LoginParentActivity, 
     public void showLogin() {
         changeView(mLoginFragment);
         message = "Logging in.. Please wait..";
+    }
+
+    public void showRequestOTP() {
+        changeView(mRequestOTPFragment);
+        message = "Requesting OTP... Please wait..";
     }
 
     public static class DeviceCreated implements SmartResponseListener {
